@@ -67,21 +67,25 @@ section {
         justify-content: flex-end;
     }
 }
-/* Styles pour les images de la galerie */
+
+
+/* Styles pour la grille de la galerie */
 .image-grid {
     display: grid;
-    grid-template-columns: 1fr; /* 1 colonne pour mobile */
-    grid-gap: 10px; /* Espace entre les images */
+    grid-template-columns: repeat(2, 1fr); /* 2 colonnes pour desktop */
+    grid-gap: 10px; /* Espacement entre les images */
+    justify-items: center; /* Centre les éléments horizontalement */
+    align-items: center; /* Centre les éléments verticalement */
+    border: 1px solid #ccc; /* Bord de la grille */
+    border-radius: 8px; /* Bords arrondis de la grille */
+    padding: 10px;
 }
 
 .image {
+    position: relative;
     overflow: hidden;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    text-align: center; /* Centrez le contenu */
-    padding: 10px;
-    width: 300px; /* Largeur fixe pour les cadres d'image */
-    height: 300px; /* Hauteur fixe pour les cadres d'image */
+    width: 100%; /* Les images occupent toute la largeur du cadre */
+    height: 100%; /* Les images occupent toute la hauteur du cadre */
 }
 
 .image img {
@@ -91,13 +95,34 @@ section {
     transition: transform 0.2s; /* Animation de zoom au survol */
 }
 
+.image:hover img {
+    opacity: 0.7; /* Réduire l'opacité au survol */
+    transform: scale(1.05); /* Légère mise à l'échelle au survol */
+}
+
+.image .label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+    opacity: 0; /* Le label est initialement invisible */
+    transition: opacity 0.2s; /* Animation d'opacité */
+}
+
+.image:hover .label {
+    opacity: 1; /* Afficher le label au survol */
+}
+
 /* Réactivité */
 
 /* Pour les écrans plus petits (mobile) */
 @media (max-width: 767px) {
-    .image {
-        width: 100%; /* Les images occupent 100% de la largeur de leur parent */
-        height: auto; /* Hauteur automatique */
+    .image-grid {
+        grid-template-columns: 1fr; /* 1 colonne pour mobile */
     }
 }
 
@@ -107,6 +132,8 @@ section {
         grid-template-columns: repeat(2, 1fr); /* 2 colonnes pour desktop */
     }
 }
+
+
 
 /* Style spécifique pour le lien Instagram */
 nav a[href="#instagram"] img {
