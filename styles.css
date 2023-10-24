@@ -67,9 +67,6 @@ section {
         justify-content: flex-end;
     }
 }
-
-/* Autres ajustements de mise en page pour les écrans plus larges si nécessaire */
-
 /* Styles pour les images de la galerie */
 .image-grid {
     display: grid;
@@ -83,11 +80,13 @@ section {
     border-radius: 8px;
     text-align: center; /* Centrez le contenu */
     padding: 10px;
+    width: 300px; /* Largeur fixe pour les cadres d'image */
+    height: 300px; /* Hauteur fixe pour les cadres d'image */
 }
 
 .image img {
     max-width: 100%; /* Les images occupent 100% de la largeur de la div */
-    height: auto; /* Conserve le rapport hauteur/largeur */
+    max-height: 100%; /* Les images occupent 100% de la hauteur de la div */
     display: block;
     transition: transform 0.2s; /* Animation de zoom au survol */
 }
@@ -98,6 +97,7 @@ section {
 @media (max-width: 767px) {
     .image {
         width: 100%; /* Les images occupent 100% de la largeur de leur parent */
+        height: auto; /* Hauteur automatique */
     }
 }
 
@@ -106,8 +106,14 @@ section {
     .image-grid {
         grid-template-columns: repeat(2, 1fr); /* 2 colonnes pour desktop */
     }
+}
 
-    .image {
-        width: auto; /* Largeur automatique pour les images */
-    }
+/* Style spécifique pour le lien Instagram */
+nav a[href="#instagram"] img {
+    width: 30px; /* Ajustez la taille de l'icône selon vos besoins */
+    height: 30px; /* Ajustez la taille de l'icône selon vos besoins */
+}
+
+nav a[href="#instagram"]:hover img {
+    opacity: 0.7; /* Opacité réduite au survol */
 }
