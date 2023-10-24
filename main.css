@@ -1,0 +1,71 @@
+/* Styles généraux */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav li {
+    display: inline;
+    margin: 10px;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin: 20px 0;
+}
+
+/* Réactivité */
+
+/* Pour les écrans plus petits, par exemple, les smartphones */
+
+@media (max-width: 767px) {
+    header {
+        padding: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav li {
+        display: block;
+        margin: 5px 0;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    section {
+        margin: 10px 0;
+    }
+}
+
+/* Pour les écrans plus grands, par exemple, les tablettes et les ordinateurs de bureau */
+
+@media (min-width: 768px) {
+    nav ul {
+        justify-content: flex-end;
+    }
+}
+
+/* Autres ajustements de mise en page pour les écrans plus larges si nécessaire */
